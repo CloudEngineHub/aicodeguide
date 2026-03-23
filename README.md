@@ -25,7 +25,7 @@ changing. And it's a profound change: on the tools we use, the
 way we code and think about software products and systems.
 
 And it's changing super fast! New LLM models are being released every week. New
-tools, new editors, new "vibe coding" practices, new protocols, MCP, A2A, SLOP,
+tools, new editors, new AI coding and "vibe coding" practices, new protocols, MCP, A2A, SLOP,
 ... And it's really hard to keep track of all that. Everything is
 scattered in different places, websites, repos, YouTube videos, etc.
 
@@ -41,29 +41,42 @@ place, with no fuss, in an accessible form.
 
 - **If you never coded before but you're interested in this new "vibe coding"
   thing to build your own SaaS and other software products**, this guide is
-  definetely for you: We'll try to do my best to remove obscurity and leave you
+  definitely for you: We'll try to do my best to remove obscurity and leave you
   with what's required to start your journey, but being super critic about what
   is really important and what's "just hype".
+
+Before we start, just a small suggestion on how to read this guide. We tried to organize
+it in a *FAQ-ish way*, so feel free to search and jump for possible answers to your
+questions. You'll see that every section as some "Resources" listed: we keep
+updating those resources and you'll find the most recent ones in the top of
+the list.
+
+Like I said, AI changes a lot and in a daily basis, we try our best to keep this guide
+updated, but if you find anything missing, please feel free to open a PR or an issue,
+or even jump in your discord and share your new findings with us so we can include it
+here!
 
 Cool, let's start!
 
 📚 Resources:
 
-- [The End of Programming as We Know It](https://www.oreilly.com/radar/the-end-of-programming-as-we-know-it) by Tim O'Reilly
-- [How to prepare for the future of development and AI](https://www.youtube.com/watch?v=BP54GqVK3JA) by Santiago
-- [The revenge of the junior developer](https://sourcegraph.com/blog/revenge-of-the-junior-developer) by Steve Yegge
-- [Dear Student: Yes, AI is here, you're screwed unless you take action...](https://ghuntley.com/screwed/) by Geoffrey Huntley
-- [How to Build an Agent](https://ampcode.com/how-to-build-an-agent) by Thorsten Ball
-- [Using LLMs for code](https://simonwillison.net/2025/Mar/11/using-llms-for-code/) by Simon Willison
-- [The 70% problem: Hard truths about AI-assisted coding](https://addyo.substack.com/p/the-70-problem-hard-truths-about) by Addy Osmani
-- [Become an AI-augmented engineer](https://maryrosecook.com/blog/post/become-an-ai-augmented-engineer) by Mary Rose Cook
-- [Raising an Agent podcast](https://ampcode.com/podcast) by Amp team
-- [Software Is Changing (Again)](https://www.youtube.com/watch?v=LCEmiRjPEtQ) by Andrej Karpathy
+- [Zen of AI coding](https://nonstructured.com/zen-of-ai-coding/) by Yoav Aviram
+- [How I use AI to code as a software engineer](https://hackable.substack.com/p/how-i-use-ai-to-code-as-a-software) by Vilson Vieira
 - [What I learned using AI to code for a year](https://hackable.substack.com/p/what-i-learned-using-ai-to-code-for) by Vilson Vieira
-- [The death of the stubborn developer](https://steve-yegge.medium.com/the-death-of-the-stubborn-developer-b5e8f78d326b) by Steve Yegge
 - [Software Survival 3.0](https://steve-yegge.medium.com/software-survival-3-0-97a2a6255f7b) by Steve Yegge
+- [The death of the stubborn developer](https://steve-yegge.medium.com/the-death-of-the-stubborn-developer-b5e8f78d326b) by Steve Yegge
+- [Software Is Changing (Again)](https://www.youtube.com/watch?v=LCEmiRjPEtQ) by Andrej Karpathy
+- [Raising an Agent podcast](https://ampcode.com/podcast) by Amp team
+- [Become an AI-augmented engineer](https://maryrosecook.com/blog/post/become-an-ai-augmented-engineer) by Mary Rose Cook
+- [The 70% problem: Hard truths about AI-assisted coding](https://addyo.substack.com/p/the-70-problem-hard-truths-about) by Addy Osmani
+- [Using LLMs for code](https://simonwillison.net/2025/Mar/11/using-llms-for-code/) by Simon Willison
+- [How to Build an Agent](https://ampcode.com/how-to-build-an-agent) by Thorsten Ball
+- [Dear Student: Yes, AI is here, you're screwed unless you take action...](https://ghuntley.com/screwed/) by Geoffrey Huntley
+- [The revenge of the junior developer](https://sourcegraph.com/blog/revenge-of-the-junior-developer) by Steve Yegge
+- [How to prepare for the future of development and AI](https://www.youtube.com/watch?v=BP54GqVK3JA) by Santiago
+- [The End of Programming as We Know It](https://www.oreilly.com/radar/the-end-of-programming-as-we-know-it) by Tim O'Reilly
 
-## AI coding? Vibe coding?
+## AI coding? Vibe coding? Agentic coding?
 
 All those terms are pretty similar. But basically AI coding is about using AI
 models (specially LLMs these days) and all the tooling around it to help you
@@ -73,8 +86,8 @@ that dates back to 1950's when we used Lisp to generate code. Now we have LLMs
 as main engines to power code generation, and there's also some threads on
 neurosymbolic hybrid approaches starting to show up. AI coding is also a
 practice: if you're using Cursor and tab-tab-tab your way to get completions,
-you're "AI coding"; if you're full on using Cursor's agent mode, you're also "AI
-coding". In summary: it's any way to use AI models to help you to generate
+you're "AI coding"; if you're full on using Codex's agent mode, you're also "AI
+coding". In summary: it's any way to use AI models to help you generate
 code. Generally you have people who already know how to code in this group.
 
 Vibe coding is AI coding cranked up :-) Here you don't care much about the code
@@ -83,9 +96,15 @@ for you. The term was [coined by Karpathy](https://x.com/karpathy/status/1886192
 popular. IMHO it's helping to democratize coding for everyone that never
 thought about coding before!
 
+And then we have a new breed surfacing: agentic coding. That's when you run an
+agent for many rounds, by itself, in a loop, ideally with some feedback signal
+(tests, etc). You can either run one agent or use *orchestrators* like GasTown
+to run many agents at same time, with minor to zero human interaction.
+
 So, in summary, no matter if you're using AI to discuss your software ideas or
 to help on coding only parts of your already existing code base, or if you're
-full on vibe coding, you're using AI to help you generate code. Let's call it
+full on vibe coding or if you let one or 100 agents running 24/7 without
+intervention, you're using AI to help you generate code. Let's call it
 AI coding and move on.
 
 ## How can I use it?
@@ -99,7 +118,8 @@ You can use AI coding in many different ways, but in summary:
   parts of your work.
 
 - AI is the pilot: here you are the copilot. This is where the "vibe coding"
-  happens. You turn on the Cursor Agent YOLO mode and trust everything the
+  happens. You turn on the Cursor Agent YOLO mode or run Claude Code
+  with `--dangerously-skip-permissions` flag set and trust everything the
   agents do to generate your code. Really powerful way to automate yourself,
   but demands some good practices on how to design systems, tame the agents and
   jumping in on a spaghetti of code you actually don't know about, specially to
@@ -118,7 +138,7 @@ important this is.
 
 - If you don't know how to code and want to play with it, we recommend starting
 with some web-based tool like [Bolt](https://bolt.new), [Replit](https://replit.com),
-[v0](https://v0.dev) or [Lovable](https://lovable.dev).
+[v0](https://v0.dev), [Suuper](https://suuper.dev) or [Lovable](https://lovable.dev).
 
 - If you already know how to code, install [Claude Code](https://claude.com/product/claude-code),
 [Codex](https://openai.com/codex/),
@@ -129,30 +149,30 @@ Cursor are both pretty good and cheap, given you'll have tons of tokens to use o
 most recent LLM models out there. VSCode has its own
 [Agent Mode](https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode)
 as well. It pairs with Github Copilot and uses and Agentic Workflow to make changes
-and edit files. Other editors are rapidly adding Agentic features,
-so check your favorite editor's website for more information.
-These agentic features are often only enabled within Beta or Insider builds.
+and edit files.
 
-- If you want a more open source alternative, try [Pi](https://pi.dev/),
+- If you want a more open source alternative, try [Pi](https://pi.dev/) (recommended),
 [OpenCode](https://opencode.ai/) or [OpenHands](https://github.com/All-Hands-AI/OpenHands).
 
 > Suggestion: We really recommend creating an account in OpenRouter. It's really easy and you'll
 get access to the most updated LLM models and even free versions of it.
 
-> Important note: Claude Code is super expensive these days! You can easily spend $50/day.
-So be careful, monitor your usage. That's why it's recommended to start with Cursor so you don't
-have to worry about it.
+> Important note: Using Claude Code through their API/SDK is super expensive! You can easily burn
+hundreds of dollars a day without noticing.
+That's why it's recommended to start with Claude Code Pro or Max plans, so you don't
+have to worry about it. If you really need to use their API/SDK (either to embed it in your
+app or other use case), make sure to keep an eye on your usage, displayed on Anthropic's dashboard.
 
 📚 Resources:
 
 - [Vibe Coding 101 with Replit](https://www.deeplearning.ai/short-courses/vibe-coding-101-with-replit/)
-- [Cursor AI Tutorial for Beginners [2025 Edition]](https://www.youtube.com/watch?v=3289vhOUdKA)
+- [Cursor AI Tutorial for Beginners (2025 Edition)](https://www.youtube.com/watch?v=3289vhOUdKA)
 
 ## How I prompt for coding? AKA How I vibe code?<a id='vibe'></a>
 
-After you installed and played with those tools a bit, you'll notice they will
-hallucinate, enter in endless cycles of trying to fix a possible error, etc.
-It's important to know how to prompt well. Some tips:
+Before mid or end-2025, it was really common to LLMs hallucinate and enter in endless cycles
+to fix errors. Nowadays the models are really good, but it's still interesting to
+follow basic principles when using them to code:
 
 - Do not ask everything in one prompt. Only prompting "hey, build me an app
   for my pet store" doesn't help a software engineer and much less an AI :-)
@@ -166,10 +186,18 @@ It's important to know how to prompt well. Some tips:
   interpret. In the end the text will be encoded as tokens. However, to put emphasis
   in specific parts of your prompt it's recommended to use some symbols
   like [XML tags](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-xml-tags).
-- Break you project into tasks and subtasks.
-- Try different models for different goals.
-- Try different models to confirm and validate output of other models.
-- LLMs are "yes machines", so apply critical thinking.
+- Break you project into tasks and subtasks. Remember that good software engineering
+  practices are still important. Think of the agent as a "junior developer" you just hired:
+  what kind of information would you write in a PR assigned to it that would maximize
+  the PR to me approved and merged in the end?
+- Try different models for different goals. For instance, Opus or ChatGPT are pretty good
+  for planning, but you can use Sonnet or some opensource model like Kimi or Minimax to
+  execute/implement the plan.
+- Try different models to confirm and validate output of other models. You can even
+  run them in parallel and choose the best one!
+- LLMs are "yes machines", so apply critical thinking. Do not accept everything they
+  send your way. Review it, test it. In the end they are just a tool and the code
+  generated is still your responsibility.
 
 In the rest of our examples we will use the .md file extension associated with Markdown
 If you prefer asciidoc (which has somewhat better support for structured documents)
@@ -231,6 +259,13 @@ VERY IMPORTANT:
 - Each task should list dependent task ids
 ```
 5. Save this as `docs/todo.md` inside your project folder
+6. It's also really important to have an `AGENTS.md` (or `CLAUDE.md` if you're using Claude Code)
+in the root of your repository folder. You should see this file as an "agent README", so
+just like you keep a `README.md` for humans, keep one `AGENTS.md` for future agents
+that will read and edit your source code project! Important things to have: a summary of your project,
+what tech stack you use, how to install, how to test and deploy or run your project, where are
+the main PRD/specs/design or other relevant documentation, or even the main source code
+files. You can learn more about `AGENTS.md` and examples [here](https://agents.md).
 
 [Here is an example](https://chatgpt.com/share/67f8e8c6-c92c-8007-8fe0-76bdc73f9812)
 of a brainstorming/planning session done with ChatGPT 4o
@@ -240,7 +275,7 @@ Now create a local folder for you project, remember to install and run `git
 init` inside the folder to keep it under version control.
 
 This should give you the PRD and the tasks lists to build your project! With
-that in hands, you can open your Cursor (or other AI code editor), point it to
+that in hands, you can run your Codex (or other AI code agent), point it to
 those files and ask:
 
 ```
@@ -249,12 +284,6 @@ still missing in @docs/todo.md. Implement each task each time and respect task
 and subtask dependencies. Once finished a task, check it in the list and move
 to the next.
 ```
-
-Enable YOLO mode the first time Cursor Agent executes a command and then keep
-accepting or asking `continue` in the prompt.
-
-In the case of Cursor, sometimes the LLM will reach some limits and ask for
-retry. Just do it and continue. Yep, you're vibe coding :-)
 
 And here you'll find the Git repos for a CLI tool built in 10 min based on the
 this workflow: https://github.com/automata/localbiz
@@ -291,23 +320,23 @@ to be good generic-knowledge assistants in a chat with you. In other cases,
 labs capture the output of a model running tools and "reasoning"
 about the output of the tools in long sessions (from minutes to hours long), and use the feedback
 as a reward signal to the model, aligning the original trained model to the specific task. In the case
-of Claude Opus, Sonnet or OpenAI Codex, the task is coding.
+of Claude Opus, Sonnet or OpenAI GPT, the task is coding.
 That's why it's important to always use models that were trained/aligned for coding/programming and
 that support tools.
 
 Given LLMs change in a daily basis, it's impossible these days to suggest one specific version of a model
 that is good for coding. What we can do is to advice which "family" of models you should consider.
-Nowadays we have proprietary LLM models like Claude Opus and OpenAI GPT Codex as SotA for AI coding; and
+Nowadays we have proprietary LLM models like Claude Opus and OpenAI GPT as SotA for AI coding; and
 open source models like Kimi, Minimax and GLM that are always in the tail of the proprietary ones,
 decreasing the delta more and more on each release.
 
 To know which model version to pick, the general advice is to select the latest one, or please check
 the following leaderboards for more accurate comparison:
 
+- [Models.dev](https://models.dev): An open-source database of AI models
 - [OpenRouter's Models](https://openrouter.ai/models?categories=programming&fmt=table): Set categories as `programming` and also filtering
   only the models that support `tools` is generally a good way to select models
   for AI assisted coding
-- [Models.dev](https://models.dev): An open-source database of AI models
 - [Agent Leaderboard](https://huggingface.co/spaces/galileo-ai/agent-leaderboard)
 
 ## What to do when the dreaded "rate limit" message hits
@@ -332,6 +361,12 @@ Here's [Anthropic's](https://console.anthropic.com/settings/limits) as an exampl
 You can define rules or conventions that will be applied to your project by "injecting" them in the
 context of the LLM. Each editor have some ways to do it:
 
+- For almost any agent except Claude Code, create an `AGENTS.md` file in the root folder of your
+project. Check https://agents.md about more information about how to create it and examples
+- For Claude Code, just create an `CLAUDE.md` file in the root folder of your project. Anthropic
+didn't follow the `AGENTS.md` standard, so one good practice is to actually create an `AGENTS.md` file
+and then create a symbolic link from `CLAUDE.md` to the `AGENTS.md` file. You can also do the same
+by creating a `CLAUDE.md` file `@AGENTS.md` as the content.
 - In Cursor, just create
 markdown files inside a `.cursor/rules/` folder. Cursor will make it sure to
 apply those on all communication with the LLM.
@@ -350,6 +385,7 @@ for you! [Check Geoff's method on that](https://ghuntley.com/specs/).
 
 📚 Resources:
 
+- [AGENTS.md](https://agents.md)
 - [Cursor Rules Docs](https://docs.cursor.com/context/rules-for-ai)
 - [Windsurf Rules Docs](https://windsurf.com/editor/directory)
 - [Aider Conventions Docs](https://aider.chat/docs/usage/conventions.html)
@@ -361,7 +397,7 @@ for you! [Check Geoff's method on that](https://ghuntley.com/specs/).
 
 PRD. What?! They say that the best ways to solve a problem in engineering is to
 create a new acronym and here it's no exception :-) J/k... PRD is short for
-Product Requirements Document. Basically, it's just a bunch of docs (or only
+**Product Requirements Document**. Basically, it's just a bunch of docs (or only
 one doc) describing the requirements and other details about your software
 project.
 
@@ -373,7 +409,8 @@ What I most like about PRDs is how they are super helpful to anyone, from
 people who never coded before to senior SWE or product managers.
 
 You don't need any background to start a PRD, you just need your idea for an
-app and that's it.
+app and that's it, but it really helps to know the fundamentals of software design
+and details about the tech stack/framework you're using our planning to use.
 
 Check <a href="#vibe">here</a> how to use a LLM to create one for you.
 
@@ -410,37 +447,36 @@ With those files in hand, you can then comment on them with your own thoughts wh
 You (and others) can learn a lot about your project when you revisit it in the future, and
 you'll probably start noticing patterns and tips you can use in your next sessions.
 
+Agent harnesses like [Pi](https://pi.dev) or [Amp](https://ampcode.com) also allow you
+to keep and share the coding sessions. To do that
+in Pi, just type `/share` and it will create a GitHub gist with it and generate and easy
+to share and URL for a cool UI to visualize it.
+
 ## How I start my project?
 
 ### Webapp (Frontend)
 
 Modern Web development is pretty overwhelming. There are tons of JavaScript/
-TypeScript frameworks, CSS frameworks, etc so it's really hard to get started
-and think about which one to use. After spending last weeks building frontends,
-that's what I ended up using:
+TypeScript frameworks, CSS frameworks, engines, deployment services, etc so
+it's really hard to get started
+and think about which one to use. After spending last months building frontends,
+that's what I generally suggest:
 
-- Next.js so you can deploy to Vercel and embrace their ecosystem (can get
-expensive fast)
-- Vanilla React and using React Router so you can deploy to anywhere
-- TanStack or Remix so you can have good routing support and still deploy to anywhere
-- FastHTML if you love Python and care more about exposing a core
+- [TanStack Start](https://tanstack.com/start): you get a powerful React framework and
+you are free from Vercel or any other provider, so you can deploy anywhere
+you want
+- [Next.js](https://nextjs.org): it's still the most popular React framework
+out there, but you'll be dependant of the Vercel ecosystem, which is good and bad
+- [FastHTML](https://fastht.ml): if you love Python and care more about exposing a core
 backend functionality (eg some data analysis, or AI/ML model pipeline) than
 super pretty UI
-
-Web-based AI coding platforms like Lovable use React while v0 uses Next.js.
-
-One trick you can use is to start your project at Lovable (you can get up to
-5 messages per day on their free plan), setup it to output your project to 
-GitHub and then just clone it in your local machine and continue AI coding it
-using Cursor. Then you can deploy it to places like Render, Fly.io, CloudFlare,
-etc. No strings attached. Specially interesting if you specifics/more complex
-routines in your backend.
 
 If you're also coding the backend, make sure to have either one folder for
 backend and other for frontend in your root folder for your Git repos; or
 have different repos for backend and frontend, and then add them to the same
 workspace in Cursor (so you can reference files of backend in your frontend
-agent and vice-versa).
+agent and vice-versa) or run Claude Code or other CLI-based harness in the
+root folder.
 
 To avoid integrating the frontend into the backend too early, instruct the AI
 agent to use mock/dummy data instead, so you can update it later once you
@@ -450,20 +486,24 @@ Another interesting tip is to use good MCP tools to integrate your coding agent
 to playwright or browser-use. This way you can avoid the copy-paste cycle of
 errors from the web browser into your AI agent, given the AI will control the
 browser and grab screenshots and errors messages by itself.
+You can use bash commands to that as well, if you are like me and don't like MCP.
 
 If you want to use 3D content in your webapp and you're using React, it's
-interesting to use React Three Fiber instead of trying to use the three.js
+interesting to use [React Three Fiber](https://github.com/pmndrs/react-three-fiber)
+instead of trying to use the three.js
 library directly. R3F makes it easier to deal with state given it wraps all
 three.js objects as React components.
 
 ### Backend
 
-Backends are not well done in Web based tools like Lovable. So you will probably
+Backends are not flexible or really scalable in Web based tools like Lovable. So you will probably
 need to get your hands at Claude Code, Codex or any other non-Web-based tool.
 
 Using Python and FastAPI is a great option. If you prefer to stay with the
 same language of your frontend (guessing it will be JavaScript or TypeScript
-most of the time), you can use Nodejs and Express.
+most of the time), you can use Nodejs or Bun. For most of the API endpoints needs
+of your TanStack or Next.js frontend, you can use Server Functions (or Server Actions),
+so no need for a separated backend.
 
 Backends are a great target for end-to-end tests, so consider guiding the
 agent to write tests and run them for each new feature and its subtasks.
@@ -479,7 +519,7 @@ For small games, use vanilla JS in a single .js file and use threejs for 3D
 games or pixijs for 2D games.
 
 Games are all about good assets, so consider using services like Tripo AI
-and Anything World to generate 3D assets and rig/animate them.
+and [Everything Universe](https://everythinguniver.se) to generate 3D assets and rig/animate them.
 
 ## How I deal with errors and bugs?
 
@@ -491,9 +531,17 @@ The first strategy here is to mimic what SWE do: see what the
 interpreter/compiler gave to you as an error message and try to understand it.
 Copy and paste the error back to the LLM and ask it to fix it.
 Another great idea is to add MCP tools great for debugging like
-[BrowserTools](https://browsertools.agentdesk.ai/).
+[BrowserTools](https://browsertools.agentdesk.ai/) or connecting Claude
+Code or other agents to your local Chrome. It's also possible to use headless
+browsers through Playwright in remote development or if you don't want to
+use your current local Chrome.
 
 ## What's MCP, SLOP and A2A and how can I benefit from it?
+
+> Update March 2026: Nowadays, we know that giving bash as a tool for agents
+> is generally enough as an alternative to MCP: the agent can use `curl` to
+> call APIs or run other commands, in a more efficient way (eg consuming
+> much less tokens). But MCP is still interesting for some use cases.
 
 MCP is short for Model Context Protocol. It was developed by Anthropic but it's
 starting to be considered by other LLMs like OpenAI's GPT and Google's Gemini.
@@ -521,20 +569,20 @@ proposes. However, having a standard like MCP makes it easier to make sure the
 LLM will support it natively without extra parsing and tricks on the client
 side.
 
-A2A (Agent to Agent Protocol) is pretty recent in the game. It was created by
+A2A (Agent to Agent Protocol) was created by
 Google to "complement" MCP, focusing on multiagent communication while MCP
 focuses on LLM-tools communications.
 
-> Important: There are lots of good MCP servers out there and editors like Cursor support
-them. For now, only Anthropic Claude LLM supports them, so make sure to use it
-Claude when you want to work with MCP tools.
-
-Anthropic keeps an updated list of MCP servers here:
-https://github.com/modelcontextprotocol/servers 
+One more thing before we go: if you are using a harness like Pi that doesn't
+support MCP, no problem, you can basically wrap your beloved MCP tool as a CLI,
+and then just let PI call it using the bash. Just use [mcporter](https://github.com/steipete/mcporter/)
+to do the trick.
 
 📚 Resources:
 
 - [MCP](https://modelcontextprotocol.io/)
+- [MCP is Dead; Long Live MCP!](https://chrlschn.dev/blog/2026/03/mcp-is-dead-long-live-mcp/)
+- [Anthropic's ilist of MCP servers](https://github.com/modelcontextprotocol/servers)
 - [SLOP](https://github.com/agnt-gg/slop)
 - [Introducing SLOP](https://russell.ballestrini.net/introducing-slop/)
 - [MCP vs SLOP](https://mcpslop.com/)
@@ -602,13 +650,13 @@ a future webapp, for instance.
 
 ## Should I use TDD or any other type of tests?
 
-Yes, tests are more important than ever. At current state of the art in 2025,
+Yes, definitely yes. Tests are more important than ever. At current state of the art in 2026,
 LLMs are good at generating clean and correct code, but they sometimes
-hallucinate - and more importantly, they can fail at understanding
+hallucinate, and more importantly, they can fail at understanding
 specifications and generate correct code to do the wrong thing.
 
 It is not likely that this will change even if and when we get full
-human-equivalent artificial general intelligence - after all, human
+human-equivalent artificial general intelligence, after all, human
 beings misunderstand specifications too! Ambiguity of language is why
 tests will continue to be important even into the future.
 
@@ -708,11 +756,14 @@ https://github.com/LLM-Red-Team/kimi-cc/blob/main/README_EN.md
 
 ## How to create my own AI coding agent?
 
-We're working on some tutorials on how to do it while building our own tools, so keep posted.
 The best intro is
 [this practical tutorial](https://ampcode.com/how-to-build-an-agent) by Thorsten
 where you build a simple agent that uses basic the
 minimal amount of tools (`list_files`, `read_file`, `edit_file`) in Go, step-by-step.
+
+I also wrote another tutorial on how to [create your own AI coding agent here](https://hackable.space/en/courses/creating-your-own-agent).
+It's just 150 lines of Python and gives you an idea of what happens under the hood
+of an agent harness.
 
 If you want to go deeper, [this series of open source books](https://gerred.github.io/building-an-agentic-system)
 by Gerred is definetely a great start.
@@ -782,6 +833,7 @@ most of them and you'll find our honest opinion during the time we tested them.
 - [Bolt](https://bolt.new)
 - [v0](https://v0.dev)
 - [Replit](https://replit.com)
+- [Suuper](https://suuper.dev)
 - [Lovable](https://lovable.dev)
 - [Firebase Studio](https://firebase.studio/)
 
